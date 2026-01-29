@@ -1,0 +1,45 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#grad1)"/>
+  
+  <!-- Stars -->
+  <circle cx="100" cy="80" r="2" fill="white" opacity="0.8"/>
+  <circle cx="250" cy="120" r="2" fill="white" opacity="0.6"/>
+  <circle cx="400" cy="60" r="2" fill="white" opacity="0.9"/>
+  <circle cx="550" cy="150" r="2" fill="white" opacity="0.7"/>
+  <circle cx="700" cy="90" r="2" fill="white" opacity="0.8"/>
+  <circle cx="850" cy="130" r="2" fill="white" opacity="0.6"/>
+  <circle cx="1000" cy="70" r="2" fill="white" opacity="0.9"/>
+  <circle cx="1100" cy="110" r="2" fill="white" opacity="0.7"/>
+  <circle cx="150" cy="500" r="2" fill="white" opacity="0.8"/>
+  <circle cx="300" cy="520" r="2" fill="white" opacity="0.6"/>
+  <circle cx="450" cy="480" r="2" fill="white" opacity="0.9"/>
+  <circle cx="600" cy="540" r="2" fill="white" opacity="0.7"/>
+  <circle cx="750" cy="500" r="2" fill="white" opacity="0.8"/>
+  <circle cx="900" cy="520" r="2" fill="white" opacity="0.6"/>
+  <circle cx="1050" cy="490" r="2" fill="white" opacity="0.9"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="white" text-anchor="middle" style="text-shadow: 4px 4px 8px rgba(0,0,0,0.4)">
+    🌴 ¡VAMOS A MÉXICO! 🌴
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="330" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle" opacity="0.95">
+    Family Countdown
+  </text>
+  
+  <!-- Date Box -->
+  <rect x="375" y="370" width="450" height="90" rx="45" fill="rgba(0,0,0,0.2)"/>
+  <text x="600" y="430" font-family="Arial, sans-serif" font-size="42" fill="white" text-anchor="middle" font-weight="500">
+    February 17, 2026
+  </text>
+</svg>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Preview PNG</title>
+</head>
+<body style="margin: 0; padding: 20px; background: #000; color: #fff; font-family: Arial;">
+    <h2>Preview Image Generator</h2>
+    <p>Click the button to download the preview image:</p>
+    <button onclick="generateImage()" style="padding: 15px 30px; font-size: 18px; cursor: pointer; background: #667eea; color: white; border: none; border-radius: 5px;">
+        Generate & Download preview.png
+    </button>
+    <br><br>
+    <canvas id="canvas" width="1200" height="630" style="border: 2px solid #fff; max-width: 100%;"></canvas>
+    
+    <script>
+        function generateImage() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(0.5, '#764ba2');
+            gradient.addColorStop(1, '#f093fb');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Draw stars
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            for (let i = 0; i < 80; i++) {
+                const x = Math.random() * 1200;
+                const y = Math.random() * 630;
+                const radius = Math.random() * 2 + 1;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Main title
+            ctx.fillStyle = 'white';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 4;
+            ctx.shadowOffsetY = 4;
+            ctx.font = 'bold 90px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('¡VAMOS A MÉXICO!', 600, 240);
+            
+            // Palm trees (emojis don't render well, use text)
+            ctx.font = '80px Arial';
+            ctx.fillText('🌴', 150, 200);
+            ctx.fillText('🌴', 1050, 200);
+            
+            // Subtitle
+            ctx.shadowBlur = 6;
+            ctx.font = '48px Arial';
+            ctx.fillText('Family Countdown', 600, 320);
+            
+            // Date box
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.beginPath();
+            ctx.roundRect(375, 370, 450, 90, 45);
+            ctx.fill();
+            
+            // Date text
+            ctx.fillStyle = 'white';
+            ctx.shadowBlur = 6;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.font = '42px Arial';
+            ctx.fillText('February 17, 2026', 600, 428);
+            
+            // Decorative emojis
+            ctx.font = '60px Arial';
+            ctx.fillText('🌮', 200, 550);
+            ctx.fillText('☀️', 1000, 550);
+            ctx.fillText('🏖️', 150, 100);
+            ctx.fillText('🦜', 1050, 100);
+            
+            // Download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'preview.png';
+                a.click();
+                URL.revokeObjectURL(url);
+                alert('preview.png downloaded! Save it to your days-til-mexico folder.');
+            }, 'image/png');
+        }
+        
+        // Auto generate on load
+        window.onload = function() {
+            generateImage();
+        };
+    </script>
+</body>
+</html>
