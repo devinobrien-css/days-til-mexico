@@ -133,6 +133,49 @@ document.head.appendChild(style);
 // Event listeners
 document.getElementById('factButton').addEventListener('click', showRandomFact);
 document.getElementById('excitementButton').addEventListener('click', addExcitement);
+document.getElementById('memeButton').addEventListener('click', loadMeme);
+
+// Load a meme from local folder
+function loadMeme() {
+    const memeContainer = document.getElementById('memeContainer');
+    
+    // Array of all meme files
+    const memes = ["1.MP4","10.GIF","11.GIF","12.GIF","13.GIF","14.GIF","15.GIF","16.GIF","17.GIF","18.PNG","19.GIF","2.MP4","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg","25.PNG","26.jpg","27.JPG","28.JPG","29.JPG","3.GIF","30.jpg","31.JPG","32.PNG","33.PNG","4.GIF","5.PNG","6.PNG","7.GIF","8.PNG","9.GIF"];
+    
+    // Pick random meme
+    const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+    const memeUrl = `memes/${randomMeme}`;
+    const ext = randomMeme.split('.')[1].toLowerCase();
+    
+    // Clear container
+    memeContainer.innerHTML = '';
+    
+    if (ext === 'mp4') {
+        // Video
+        const video = document.createElement('video');
+        video.src = memeUrl;
+        video.controls = true;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.style.maxWidth = '100%';
+        video.style.maxHeight = '500px';
+        video.style.borderRadius = '10px';
+        video.onerror = function() {
+            memeContainer.innerHTML = '<div class="meme-placeholder">Video failed to load. Try another!</div>';
+        };
+        memeContainer.appendChild(video);
+    } else {
+        // Image (GIF, PNG, JPG)
+        const img = document.createElement('img');
+        img.src = memeUrl;
+        img.alt = 'Mexico meme';
+        img.onerror = function() {
+            memeContainer.innerHTML = '<div class="meme-placeholder">Image failed to load. Try another!</div>';
+        };
+        memeContainer.appendChild(img);
+    }
+}
 
 // Save checkbox state
 const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
@@ -166,3 +209,8 @@ setTimeout(() => {
 setTimeout(() => {
     showRandomFact();
 }, 1000);
+
+// Load initial meme
+setTimeout(() => {
+    loadMeme();
+}, 1500);
