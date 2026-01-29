@@ -392,6 +392,10 @@ body {
         font-size: 1rem;
     }
     
+    .fun-facts h2, .excitement-meter h2, .packing-list h2, .meme-section h2 {
+        font-size: 1.5rem;
+    }
+    
     .number {
         font-size: 2.5rem;
     }
@@ -407,6 +411,10 @@ body {
 
 @media (max-width: 480px) {
     .header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .fun-facts h2, .excitement-meter h2, .packing-list h2, .meme-section h2 {
         font-size: 1.2rem;
     }
     
